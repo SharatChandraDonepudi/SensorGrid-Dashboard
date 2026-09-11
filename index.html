@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SensorGrid Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>SensorGrid</h1>
+    <p>Smart Sensor Monitoring Dashboard</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Add Sensor Form -->
+    <section class="form-section">
+      <h2>Add New Sensor</h2>
+
+      <form id="sensorForm">
+
+        <div class="form-group">
+          <label for="sensorId">Sensor ID</label>
+          <input
+            type="text"
+            id="sensorId"
+            placeholder="Example: S001"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="sensorType">Sensor Type</label>
+          <select id="sensorType" required>
+            <option value="">Select Type</option>
+            <option value="Temperature">Temperature</option>
+            <option value="Water Level">Water Level</option>
+            <option value="Humidity">Humidity</option>
+            <option value="Pressure">Pressure</option>
+            <option value="Motion">Motion</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            placeholder="Example: Lab 1"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="threshold">Threshold</label>
+          <input
+            type="number"
+            id="threshold"
+            placeholder="Example: 50"
+            min="0"
+            required
+          >
+        </div>
+
+        <button type="submit">+ Add Sensor</button>
+
+        <p id="message"></p>
+
+      </form>
+    </section>
+
+    <!-- Dashboard Statistics -->
+    <section class="stats">
+      <div class="stat-card">
+        <h3 id="totalSensors">0</h3>
+        <p>Total Sensors</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="activeSensors">0</h3>
+        <p>Active Sensors</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="waterSensors">0</h3>
+        <p>Water Sensors</p>
+      </div>
+    </section>
+
+    <!-- Sensor Table -->
+    <section class="dashboard-section">
+      <div class="section-heading">
+        <h2>Sensor List</h2>
+        <button id="clearBtn" class="clear-btn">Clear All</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Sensor ID</th>
+              <th>Sensor Type</th>
+              <th>Location</th>
+              <th>Threshold</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="sensorTableBody">
+            <!-- Dynamic rows appear here -->
+          </tbody>
+        </table>
+      </div>
+
+      <p id="emptyMessage">No sensors added yet.</p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 SensorGrid Monitoring System</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
